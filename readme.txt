@@ -2,6 +2,8 @@
 Contributors: karolisg
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JRQR8SP4QG2A6
 Tags: woocommerce, coupon, schedule, coupon expiry time
+Author: Karolis Giedraitis
+Author URI: https://profiles.wordpress.org/karolisg
 Requires at least: 3.8
 Tested up to: 4.0
 Stable tag: 0.1
