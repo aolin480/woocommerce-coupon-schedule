@@ -68,11 +68,29 @@ class WooCommerceCouponSchedule {
 	}
 
 	function woocoupon_schedule_check_validity( $valid, $coupon ) {
+		
 		$valid_date_time = get_post_meta( $coupon->id, 'woocoupon_schedule_coupon_valid_from_date_time', true );
+		
+		/* Correct date validation
+		*  @TODO: Need to incorporate the time input fields, right now it only validates the date inputs and not dates and times.
+		*/
+		$start_time = strtotime( date( 'mdy', strtotime( $valid_date_time ) ) );
+		$current_time = strtotime( date( 'mdy' ) );
 
+		if( $start_time <= $current_time ){
+			$valid = true;
+		}else{
+			$valid = false;
+		}
+
+		/*
+		 * Was giving me coupon expired errors
+		 * Code was not validating correctly;
+		 
 		if ( current_time( 'timestamp' ) < strtotime( $valid_date_time ) ) {
 			$valid = false;
 		}
+		*/
 
 		return $valid;
 	}
